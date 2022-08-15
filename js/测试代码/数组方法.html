@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组方法</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <script>
+        const a = [1,2,3,4,5,6,7,8,9,10];
+        const b = a.filter(item=>item%2)
+        console.log("filter",a,b)
+        const c = a.map(item=>item**2);
+        console.log("map",a,c)
+        const d = a.every(item=>item>2)
+        console.log("every",a,d)
+        const e = a.every(item=>item>0)
+        console.log("every",a,e)
+        const lis = document.getElementsByTagName("li");
+        const temp = [].slice.call(lis)
+        console.log(temp)
+    </script>
+</body>
+</html>
