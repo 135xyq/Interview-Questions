@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS选择器</title>
+	<style>
+		/* 兄弟选择器 */
+		/* div+p{
+			color: red;
+		}
+		div~p{
+			color: green;
+		} */
+
+
+		/* 属性选择器 */
+		/* [data~="xyq"]{
+			color: red;
+		} */
+		/* [data$="q"]{
+			color: red;
+		} */
+		/* [data^="x"]{
+			color: red;
+		} */
+		/* div::selection{
+			background-color: green;
+			color: #00f;
+		} */
+
+
+		/* 伪类选择器 */
+		div div:first-child {
+			color: red;
+		}
+
+		div p:last-child {
+			color: blue;
+		}
+
+		div p:nth-child(2){
+			color: #0f0;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 兄弟选择器 -->
+	<!-- <div>div标签-1</div>
+	<p>p标签-1</p>
+	<p>p标签-2</p> -->
+
+	<!-- 属性选择器 -->
+	<!-- <div>
+		<p data="xyq">p标签 xyq</p>
+		<p data="xiz">p标签 x</p>
+		<p data="hszq">p标签 q</p>
+	</div>
+	<div>页面字体选中后的状态</div> -->
+
+	<!-- 伪类选择器 -->
+	<div>
+		<div>div1</div>
+		<p>p1</p>
+		<div>div2</div>
+		<p>p2</p>
+		<div>div3</div>
+		<p>p3</p>
+	</div>
+
+</body>
+
+</html>
