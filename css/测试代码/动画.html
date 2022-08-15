@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3动画</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #f0f;
+            animation: run 8s steps(4) infinite;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        @keyframes run{
+            0%{
+                left: 0px;
+                top: 0px;
+            }
+            25%{
+                left: 100px;
+                top: 0px;
+            }
+            50%{
+                left: 100px;
+                top: 100px;
+            }
+            75%{
+                left: 0;
+                top: 100px;
+            }
+            100%{
+                left: 0px;
+                right: 0px;
+            }
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: #ff0;
+            position: absolute;
+            left: 400px;
+            top: 400px;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: #0ff;
+            position: absolute;
+            left: 250px;
+            top: 250px;
+            transform: scale(3);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>
