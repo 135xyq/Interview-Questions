@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var a;
+        // const result = 1 + 1 && (a = 2);
+        // const temp = 1-1 || 1+2
+        // console.log(temp)
+        // const symbol1 = Symbol("symbol1")
+        // console.log(typeof symbol1)
+        // console.log(Number(undefined),Number(""),Number(null))
+        // console.log(parseInt(null),parseInt(true),parseInt("12a"),parseInt("1.2.3"),parseInt(undefined),parseInt(""))
+        // console.log((123).toString(),({a:1,b:2}).toString(),(12).toString(2))
+        // console.log((1.23344).toFixed(2))
+        // console.log(isNaN(("abc")),isNaN(12))
+        // let a = '1';
+        // console.log(a++,a,a+'1',a-"2")
+
+        // console.log("a" > 1,"a"<"b","a">"1")
+
+        // function fn(a) {
+        //     console.log(a);
+        //     var a = 123;
+        //     console.log(a);
+
+        //     function a() {}
+        //     console.log(a);
+        //     var b = function () {}
+        //     console.log(b);
+
+        //     function d() {}
+        // }
+        // fn(1);
+
+        // function test(a, b) {
+        //     console.log(a);
+        //     c = 0;
+        //     var c;
+        //     a = 3;
+        //     b = 2;
+        //     console.log(b);
+
+        //     function b() {}
+
+        //     function d() {}
+        //     console.log(b);
+        // }
+
+        // test(1);
+
+
+        // function test(){
+        //     console.log("test")
+        // }
+
+        // console.log(test.name,test.prototype)
+
+        // (function(){
+        //     console.log("立即执行函数！")
+        // })();
+
+
+        // (function(a){
+        //     console.log("立即执行函数！",a)
+        // }(1))
+
+        // var x = 1;
+        // if (function f() {}) { //立即执行函数
+        //     x += typeof f;
+        // }
+        // console.log(x);
+
+        // function Car() {
+        //     this.name = "BMW";
+        //     this.height = "1400";
+        //     this.lang = "49000";
+        //     this.run = function () {
+        //         console.log("I am Running!")
+        //     }
+        //     return function(){}
+        // }
+        // var car = new Car();
+        // console.log(car)
+
+        // Person.prototype.name = 'xyq';
+
+        // function Person() {}
+        // var person = new Person();
+        // // Person.prototype.name = 'hsz';
+        // Person.prototype = {
+        //     name: 'hsz'
+        // }
+        // console.log(person.name);
+
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        var person = new Person('XYQ', 21);
+        var obj = {}
+        Person.call(obj, 'xyq', 21);
+
+        console.log(person,obj)
+    </script>
+</body>
+
+</html>
