@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+<body>
+	<div>
+		<canvas id="canvas1" style="width: 300px;height: 300px;border: 1px solid #000"></canvas>
+	</div>
+	
+	<script>
+		const canvas1 = document.getElementById("canvas1")
+		const ctx = canvas1.getContext("2d");
+		// console.log(ctx)
+		// ctx.moveTo(200,200);
+		// ctx.lineTo(100,100);
+		// ctx.lineTo(100,30);
+		ctx.rect(10,40,200,100)
+		ctx.fill()
+		ctx.stroke()
+	</script>
+</body>
+</html>
