@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>border、background</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            background-color: red;
+            margin: 0 auto;
+            box-shadow: 2px 2px 10px 10px #000,2px 2px 10px 10px #0ff;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            margin: 0 auto;
+            border-radius: 0px 100px 0 0 ;
+        }
+        .box3{
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to right,#f00,#0f0,#00f,#fff);
+        }
+        .box4{
+            margin: 30px;
+            font-size: 30px;
+            text-shadow: 2px 2px 2px #f00;
+        }
+        .box5{
+            user-select: none;
+        }
+
+        .box6{
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex: 1 1 auto;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4">
+        一段文字
+    </div>
+    <div class="box5"> 不能复制</div>
+    <ul class="box6">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>
