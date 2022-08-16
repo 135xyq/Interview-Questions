@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var b = "c"
+        // let a = "b"
+
+        // let str1 = "abc"
+        // console.log(str1.repeat(3))
+        // console.log(str1.endsWith("bc",5))
+
+        // function test(a,b=2,...c){
+        //     console.log(a,b,c)
+        // }
+        // test(1,undefined,6756,213,3)
+
+        // const obj = {
+        //     name: 'xyq',
+        //     age: 20,
+        //     sex: 'male'
+        // }
+        // const obj1 = {
+        //     ...obj
+        // };
+        // console.log(obj1,obj===obj1)
+
+        // console.log(Object.is(NaN,NaN),NaN === NaN)
+        // console.log(Object.is(+0,-0),+0===-0)
+
+
+        class Test {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            set age(val) {
+                if (val < 0) {
+                    val = 0;
+                }
+                this._age = val;
+            }
+            get age() {
+                return this._age;
+            }
+            print() {
+                console.log(this._age)
+            }
+        }
+
+        const test = new Test("xyq",21);
+        console.log(test.age)
+        test.age=22;
+        console.log(test.age)
+    </script>
+</body>
+
+</html>
