@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box1" onclick="for(let i = 0 ;i < 3;i++){console.log(i)}">
+        <p>1</p>
+        <img src="https://xyq135.com/135xyq.github.io/images/avatar.jpeg" alt="">
+    </div>
+    <script>
+        // console.log(document.querySelectorAll("#box1 p"))
+        // console.log(document.getElementsByTagName("p"))
+        // const p = document.createElement("p");
+        // p.innerHTML = "2";
+        // box1.appendChild(p)
+        // console.log(box1.attributes)
+        // console.log(window.pageXOffset,window.pageYOffset)
+        // console.log(window.innerWidth,window.innerHeight)
+        // console.log("获取元素的几何尺寸：",box1.getBoundingClientRect())
+
+        // 滚动到指定区域
+        // window.scroll(100,200)
+
+        // console.log("获取元素的样式", box1.currentStyle)
+
+        box1.className = "class1 class2"
+
+        window.onload = function(){
+            console.log("加载完成！")
+        }
+    </script>
+</body>
+</html>
