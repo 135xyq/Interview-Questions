@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异步处理</title>
+</head>
+<body>
+    <script>
+        const pro = new Promise((resolve,reject)=>{
+            reject(222222)
+        }).then((res) => {
+            console.log(res)
+            return "resolve1";
+        },err=>{
+            console.log(err)
+        }).then((res) => {
+            console.log("1",res)
+        })
+
+        console.log(pro)
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>符号</title>
+</head>
+<body>
+    <script>
+        const one = Symbol("one");
+        const two = Symbol("two")
+        // console.log(one,String(one))
+        // console.log(one==two)
+        const test = Symbol.for("one1")
+        const test1 = Symbol.for("one1")
+        console.log(test,test == test1)
+    </script>
+</body>
+</html>
