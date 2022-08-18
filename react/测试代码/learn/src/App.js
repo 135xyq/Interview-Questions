@@ -1,8 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
-import HelloWorld from "./components/HelloWorld.js"
-import Count from "./components/Count.js"
-import Form from "./components/Form.js"
+// import HelloWorld from "./components/HelloWorld.js"
+// import Count from "./components/Count.js"
+// import Form from "./components/Form.js"
+import FunctionDefaultProps from "./components/FunctionDefaultProps.js"
+import PropType from "./components/PropTypes.js"
 
 
 function createMarkup() {
@@ -17,9 +19,11 @@ function App() {
 				<img src={logo} className="App-logo" alt="logo" />
 				<div>{2 * 3}</div>
                 <div dangerouslySetInnerHTML={createMarkup()}></div>
-                <HelloWorld></HelloWorld>
+                {/* <HelloWorld></HelloWorld>
                 <Count></Count>
-                <Form></Form>
+                <Form></Form> */}
+                <FunctionDefaultProps age="19"></FunctionDefaultProps>
+                <PropType a="1" b={2} c={true}></PropType>
 			</div>
 		</div>
 	);
