@@ -3,9 +3,15 @@ import "./App.css";
 // import HelloWorld from "./components/HelloWorld.js"
 // import Count from "./components/Count.js"
 // import Form from "./components/Form.js"
-import FunctionDefaultProps from "./components/FunctionDefaultProps.js"
-import PropType from "./components/PropTypes.js"
+// import FunctionDefaultProps from "./components/FunctionDefaultProps.js"
+// import PropType from "./components/PropTypes.js"
+import WithHocTest from "./components/TestHoc.js"
+import TestA from "./components/TestA.js"
+import TestB from "./components/TestB.js"
 
+
+const CompA = WithHocTest(TestA)
+const CompB = WithHocTest(TestB)
 
 function createMarkup() {
     return {__html: `<h2>h2</h2>`};
@@ -22,8 +28,11 @@ function App() {
                 {/* <HelloWorld></HelloWorld>
                 <Count></Count>
                 <Form></Form> */}
-                <FunctionDefaultProps age="19"></FunctionDefaultProps>
-                <PropType a="1" b={2} c={true}></PropType>
+                {/* <FunctionDefaultProps age="19"></FunctionDefaultProps>
+                <PropType a="1" b={2} c={true}></PropType> */}
+
+                <CompA number={1}></CompA>
+                <CompB number={2}></CompB>
 			</div>
 		</div>
 	);
