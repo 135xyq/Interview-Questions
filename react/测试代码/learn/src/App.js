@@ -13,7 +13,8 @@ import "./App.css";
 // const CompA = WithHocTest(TestA)
 // const CompB = WithHocTest(TestB)
 
-import TestRef from "./components/TestRef.js"
+// import TestRef from "./components/TestRef.js"
+import StateHook from "./components/StateHook.js"
 
 
 function createMarkup() {
@@ -37,7 +38,9 @@ function App() {
                 {/* <CompA number={1}></CompA>
                 <CompB number={2}></CompB> */}
 
-                <TestRef></TestRef>
+                {/* <TestRef></TestRef> */}
+
+                <StateHook></StateHook>
 			</div>
 		</div>
 	);
