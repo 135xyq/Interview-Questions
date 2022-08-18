@@ -5,13 +5,16 @@ import "./App.css";
 // import Form from "./components/Form.js"
 // import FunctionDefaultProps from "./components/FunctionDefaultProps.js"
 // import PropType from "./components/PropTypes.js"
-import WithHocTest from "./components/TestHoc.js"
-import TestA from "./components/TestA.js"
-import TestB from "./components/TestB.js"
+// import WithHocTest from "./components/TestHoc.js"
+// import TestA from "./components/TestA.js"
+// import TestB from "./components/TestB.js"
 
 
-const CompA = WithHocTest(TestA)
-const CompB = WithHocTest(TestB)
+// const CompA = WithHocTest(TestA)
+// const CompB = WithHocTest(TestB)
+
+import TestRef from "./components/TestRef.js"
+
 
 function createMarkup() {
     return {__html: `<h2>h2</h2>`};
@@ -31,8 +34,10 @@ function App() {
                 {/* <FunctionDefaultProps age="19"></FunctionDefaultProps>
                 <PropType a="1" b={2} c={true}></PropType> */}
 
-                <CompA number={1}></CompA>
-                <CompB number={2}></CompB>
+                {/* <CompA number={1}></CompA>
+                <CompB number={2}></CompB> */}
+
+                <TestRef></TestRef>
 			</div>
 		</div>
 	);
