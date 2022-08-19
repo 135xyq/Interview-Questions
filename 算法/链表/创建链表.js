@@ -11,4 +11,7 @@ for(let i = 0 ; i < 5;i++){
     list = list.next
 }
 
-console.log(list,head)
+
+// console.log(list,head)
+
+module.exports = head;//导出创建的链表
