@@ -27,4 +27,6 @@ function useRecursiveTraversal(head){
     useRecursiveTraversal(head.next)
 }
 
-useRecursiveTraversal(head)
+// useRecursiveTraversal(head);
+
+module.exports = useRecursiveTraversal;
