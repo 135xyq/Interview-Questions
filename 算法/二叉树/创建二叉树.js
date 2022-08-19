@@ -20,4 +20,6 @@ b.rightChild = e;
 c.leftChild = f;
 c.rightChild = g;
 
-console.log(a)
+// console.log(a)
+
+module.exports = a;
