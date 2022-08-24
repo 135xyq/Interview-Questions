@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本溢出隐藏</title>
+    <style>
+        #box1{
+            width: 500px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        #box2{
+            width: 500px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+    </style>
+</head>
+<body>
+    <p id="box1">这是一行很长很长的文字，我如果爱你，绝不学痴情的鸟儿，为绿荫重复单调的歌曲</p>
+    <hr>
+    <hr>
+    <p id="box2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore doloremque ea, sapiente ipsum hic iste atque corporis maiores rem amet velit ad soluta? Fugit deleniti provident autem dolore qui voluptate.</p>
+</body>
+</html>
