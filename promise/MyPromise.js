@@ -119,13 +119,13 @@ class MyPromise {
 			try {
 				const result = executor(this._value);
 				if (isPromise(result)) {
-				  result.then(resolve, reject);
+					result.then(resolve, reject);
 				} else {
-				  resolve(result);
+					resolve(result);
 				}
-			  } catch (error) {
+			} catch (error) {
 				reject(error);
-			  }
+			}
 		});
 	}
 
@@ -158,17 +158,44 @@ class MyPromise {
 			this._handleRunFunction();
 		});
 	}
+
+	/**
+	 * catch方法，处理失败
+	 * @param {Function} onReject
+	 */
+	catch(onReject) {
+		return this.then(null, onReject);
+	}
+
+	/**
+	 * 无论成功还是失败都会执行回调
+	 * @param {Function} onSettled
+	 */
+	finally(onSettled) {
+		return this.then(
+			(data) => {
+				onSettled();
+				return data;
+			},
+			(reason) => {
+				onSettled();
+				throw reason;
+			}
+		);
+	}
 }
 
 const promise = new MyPromise((resolve, reject) => {
 	resolve(1);
 });
 
-promise.then(data=>{
-	console.log(data)
-	return new Promise((resolve,reject)=>{
-		resolve(213)
+promise
+	.then((data) => {
+		console.log(data);
+		return new Promise((resolve, reject) => {
+			resolve(213);
+		});
 	})
-}).then(res=>{
-	console.log(res)
-})
+	.then((res) => {
+		console.log(res);
+	});
