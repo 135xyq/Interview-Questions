@@ -183,6 +183,36 @@ class MyPromise {
 			}
 		);
 	}
+
+	/**
+	 * 返回一个已完成的Promise
+	 * 特殊情况：
+	 * 1. 传递的data本身就是ES6的Promise对象
+	 * 2. 传递的data是PromiseLike（Promise A+），返回新的Promise，状态和其保持一致即可
+	 * @param {any} data
+	 */
+	static resolve(data) {
+		if (data instanceof MyPromise) {
+			return data;
+		}
+		return new MyPromise((resolve, reject) => {
+			if (isPromise(data)) {
+				data.then(resolve, reject);
+			} else {
+				resolve(data);
+			}
+		});
+	}
+
+	/**
+	 * 得到一个被拒绝的Promise
+	 * @param {any}} reason
+	 */
+	static reject(reason) {
+		return new MyPromise((resolve, reject) => {
+			reject(reason);
+		});
+	}
 }
 
 const promise = new MyPromise((resolve, reject) => {
