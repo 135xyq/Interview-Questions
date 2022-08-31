@@ -213,6 +213,41 @@ class MyPromise {
 			reject(reason);
 		});
 	}
+	/**
+	 * 得到一个新的Promise
+	 * 该Promise的状态取决于proms的执行
+	 * proms是一个迭代器，包含多个Promise
+	 * 全部Promise成功，则返回的Promise成功，数据为所有Promise成功的数据，并且顺序是按照传入的顺序排列
+	 * 只要有一个Promise失败，则返回的Promise失败，原因是第一个失败的Promise的原因
+	 * @param {iterator} proms
+	 */
+	static all(proms) {
+		return new MyPromise((resolve, reject) => {
+			try {
+				const results = [];
+				let count = 0; // Promise的总数
+				let fulfilledCount = 0; // 已完成的数量
+				for (const p of proms) {
+					let i = count;
+					count++;
+					MyPromise.resolve(p).then((data) => {
+						fulfilledCount++;
+						results[i] = data;
+						if (fulfilledCount === count) {
+							// 当前是最后一个Promise完成了
+							resolve(results);
+						}
+					}, reject);
+				}
+				if (count === 0) {
+					resolve(results);
+				}
+			} catch (error) {
+				reject(error);
+				console.error(error);
+			}
+		});
+	}
 }
 
 const promise = new MyPromise((resolve, reject) => {
