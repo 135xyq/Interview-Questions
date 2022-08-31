@@ -25,6 +25,15 @@ function runMicroTask(callback) {
 }
 
 /**
+ * 判断一个数据是否是Promise对象
+ * @param {any} obj
+ * @returns
+ */
+function isPromise(obj) {
+	return !!(obj && typeof obj === "object" && typeof obj.then === "function");
+}
+
+/**
  *
  *
  * @class MyPromise
@@ -37,7 +46,7 @@ class MyPromise {
 	constructor(executor) {
 		this._state = PENDING; //初始状态
 		this._value = undefined; //初始数据
-		this._handleQueue = [];//函数执行队列
+		this._handleQueue = []; //函数执行队列
 		// 处理错误，报错直接推向reject
 		try {
 			executor(this._resolve.bind(this), this._reject.bind(this));
@@ -58,22 +67,66 @@ class MyPromise {
 		}
 		this._state = state;
 		this._value = data;
+		this._handleRunFunction();
 	}
 
 	/**
-	 * 
+	 * 将函数加入队列
 	 * @param {Function} executor 处理函数
 	 * @param {String} state 函数对应的状态
 	 * @param {Function} resolve 让then返回的promise成功
 	 * @param {Function} reject 让then返回的promise失败
 	 */
-	_handlePushFunction(executor,state,resolve,reject){
+	_handlePushFunction(executor, state, resolve, reject) {
 		this._handleQueue.push({
 			executor,
 			state,
 			resolve,
-			reject
-		})
+			reject,
+		});
+	}
+
+	/**
+	 * 执行对列中的函数
+	 */
+	_handleRunFunction() {
+		if (this._state === PENDING) {
+			// 状态为pending时啥都不干
+			return;
+		}
+		while (this._handleQueue[0]) {
+			this._handleOneFunction(this._handleQueue[0]);
+			this._handleQueue.shift(); //处理完就删除
+		}
+	}
+
+	/**
+	 * 处理单个队列的值
+	 * @param {Object} handler 每一个队列的值
+	 */
+	_handleOneFunction({ executor, state, resolve, reject }) {
+		runMicroTask(() => {
+			if (this._state !== state) {
+				return;
+			}
+			if (typeof executor !== "function") {
+				// 传递后续处理并非一个函数
+				this._state === FULFILLED
+					? resolve(this._value)
+					: reject(this._value);
+				return;
+			}
+			try {
+				const result = executor(this._value);
+				if (isPromise(result)) {
+				  result.then(resolve, reject);
+				} else {
+				  resolve(result);
+				}
+			  } catch (error) {
+				reject(error);
+			  }
+		});
 	}
 
 	/**
@@ -100,21 +153,22 @@ class MyPromise {
 	 */
 	then(handleResolve, handleReject) {
 		return new MyPromise((resolve, reject) => {
-			this._handlePushFunction(handleResolve,FULFILLED,resolve,reject);//将promise成功的函数加入队列
-			this._handlePushFunction(handleReject,REJECTED,resolve,reject);//将失败的函数加入队列
+			this._handlePushFunction(handleResolve, FULFILLED, resolve, reject); //将promise成功的函数加入队列
+			this._handlePushFunction(handleReject, REJECTED, resolve, reject); //将失败的函数加入队列
+			this._handleRunFunction();
 		});
 	}
 }
 
 const promise = new MyPromise((resolve, reject) => {
-	setTimeout(()=>{
-		resolve(1)
-	},1000)
+	resolve(1);
 });
 
-
-promise.then(function  A1(){},function A2(){})
-promise.then(function  B1(){},function B2(){})
-
-
-console.log(promise)
+promise.then(data=>{
+	console.log(data)
+	return new Promise((resolve,reject)=>{
+		resolve(213)
+	})
+}).then(res=>{
+	console.log(res)
+})
