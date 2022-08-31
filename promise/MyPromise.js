@@ -37,7 +37,7 @@ class MyPromise {
 	constructor(executor) {
 		this._state = PENDING; //初始状态
 		this._value = undefined; //初始数据
-
+		this._handleQueue = [];//函数执行队列
 		// 处理错误，报错直接推向reject
 		try {
 			executor(this._resolve.bind(this), this._reject.bind(this));
@@ -58,6 +58,22 @@ class MyPromise {
 		}
 		this._state = state;
 		this._value = data;
+	}
+
+	/**
+	 * 
+	 * @param {Function} executor 处理函数
+	 * @param {String} state 函数对应的状态
+	 * @param {Function} resolve 让then返回的promise成功
+	 * @param {Function} reject 让then返回的promise失败
+	 */
+	_handlePushFunction(executor,state,resolve,reject){
+		this._handleQueue.push({
+			executor,
+			state,
+			resolve,
+			reject
+		})
 	}
 
 	/**
@@ -83,10 +99,22 @@ class MyPromise {
 	 * @returns 返回一个新的promise
 	 */
 	then(handleResolve, handleReject) {
-		return new MyPromise((resolve, reject) => {});
+		return new MyPromise((resolve, reject) => {
+			this._handlePushFunction(handleResolve,FULFILLED,resolve,reject);//将promise成功的函数加入队列
+			this._handlePushFunction(handleReject,REJECTED,resolve,reject);//将失败的函数加入队列
+		});
 	}
 }
 
 const promise = new MyPromise((resolve, reject) => {
-	throw new Error(123);
+	setTimeout(()=>{
+		resolve(1)
+	},1000)
 });
+
+
+promise.then(function  A1(){},function A2(){})
+promise.then(function  B1(){},function B2(){})
+
+
+console.log(promise)
