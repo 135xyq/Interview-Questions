@@ -273,6 +273,18 @@ class MyPromise {
 		}
 		return MyPromise.all(ps);
 	}
+
+	/**
+	 * 返回的Promise与第一个有结果的一致
+	 * @param {iterator} proms
+	 */
+	static race(proms) {
+		return new MyPromise((resolve, reject) => {
+			for (const p of proms) {
+				MyPromise.resolve(p).then(resolve, reject);
+			}
+		});
+	}
 }
 
 const promise = new MyPromise((resolve, reject) => {
