@@ -12,6 +12,14 @@ new Promise(function (resolve){
 	console.log(4);
 	resolve();
 	console.log(5)
+}).then(()=>{
+	new Promise(function(resolve){
+		console.log(22)
+		resolve();
+		console.log(23)
+	}).then(()=>{
+		console.log(33)
+	})
 })
 
 process.nextTick(()=>{
