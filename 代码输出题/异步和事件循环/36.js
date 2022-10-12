@@ -18,7 +18,7 @@ new Promise(function (resolve){
 		resolve();
 		console.log(23)
 	}).then(()=>{
-		console.log(33)
+		console.log(24)
 	})
 })
 
