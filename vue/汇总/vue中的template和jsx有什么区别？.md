@@ -1,0 +1,3 @@
+# vue中的template和jsx有什么区别？
+
+template和jsx是编写组件的两种方式，最终两者都会通过babel插件生成render函数。但是jsx是编写在js代码环境中的，因此对于复杂组件可能更有优势。而template更符合视图和逻辑相分离的习惯，看起来更简单直观，并且更好维护。
