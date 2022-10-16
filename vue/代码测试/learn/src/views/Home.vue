@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Test from "@/components/事件总线/Test"
+import Test from "@/components/使用ref通信/Test"
 
 export default {
   name: 'Home',
