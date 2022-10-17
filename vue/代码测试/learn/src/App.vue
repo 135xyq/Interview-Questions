@@ -7,7 +7,16 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+export default{
+	created(){
+		window.onhashchange = function(event){
+			console.log(event.oldURL, event.newURL);
+			let hash = location.hash.slice(1);
+		}
+	}
+}
+</script>
 <style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
