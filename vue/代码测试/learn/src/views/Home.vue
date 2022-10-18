@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Test from "@/components/使用ref通信/Test"
+import Test from "@/components/Vuex/Test"
 
 export default {
   name: 'Home',
