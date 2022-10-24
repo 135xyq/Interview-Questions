@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		#div::after{
+			content: "after";
+			color: red;
+			display: inline-block;
+			padding-left:30px ;
+		}
+		#div::before{
+			content:'before';
+			color: green;
+			margin-right: 20px;
+		}
+		#div::first-letter{
+			color: blue;
+		}
+		#div::first-line{
+			color:#f40;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">这是一个DIV标签</div>
+</body>
+</html>
