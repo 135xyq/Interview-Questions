@@ -1,16 +1,16 @@
 <template>
-  <div class="home">
-    <Test></Test>
-  </div>
+	<div class="home">
+		<Test></Test>
+	</div>
 </template>
 
 <script>
-import Test from "@/components/Vuex/Test"
+	import Test from "@/components/Vuex/Test";
 
-export default {
-  name: 'Home',
-  components: {
-    Test
-  }
-}
+	export default {
+		name: "Home",
+		components: {
+			Test,
+		},
+	};
 </script>
